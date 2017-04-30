@@ -1,0 +1,63 @@
+<ion-view view-title="donorConfirm" name="dashboard-view">
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <div class="row"><div class="col text-center">
+     
+      
+
+    <div class="container" ng-app="angularjs-starter" ng-controller="confirmCtrl">
+      <!--<h1>{{vm.data.name}}</h1>-->
+      <div class="row">
+        <ion-label>Name:</ionlabel> <ion-label ng-bind-html="donorData.name"></ion-label>
+      </div>
+
+      <div class="row">
+         <ion-label>Birthday:</ionlabel>
+          <ion-datetime displayFormat="MM/DD/YYYY" ng-bind-html="donorData.bday"></ion-datetime>
+      </div>
+
+      <div class="row">
+         <ion-label>Street:</ionlabel>
+          <ion-label ng-bind-html="donorData.streetName"></ion-label>
+      </div>
+
+      <div class="row">
+         <ion-label>City:</ionlabel>
+            <ion-label ng-bind-html="donorData.city"></ion-label>
+      </div>
+
+      <div class="row">
+         <ion-label>Zip:</ionlabel>
+            <ion-label ng-bind-html="donorData.zip"></ion-label>
+      </div>
+
+      <div class="row">
+         <ion-label>Mobile Number:</ionlabel>
+            <ion-label ng-bind-html="donorData.mobileNumber"></ion-label>
+      </div>
+
+      <div class="row">
+           <ion-label>Email: </ionlabel>
+            <ion-label ng-bind-html="donorData.email"></ion-label>
+      </div>
+
+      <div class="row">
+         <ion-label>Status:</ionlabel>
+          <ion-label ng-bind-html="donorData.status"></ion-label>     
+      </div>
+
+       <div class="row">
+         <ion-label>Amount:</ionlabel>
+          <ion-label ng-bind-html="donorData.amount"></ion-label>     
+      </div>
+
+      <button class="button button-balanced" ng-click="Confirmed()">Confirmed</button>      
+    </div>
+
+     
+    </div></div>
+  </ion-content>
+</ion-view>

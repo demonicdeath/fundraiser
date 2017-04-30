@@ -1,0 +1,68 @@
+<ion-view view-title="Dashboard" name="dashboard-view">
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding" overflow-scroll="true">
+    <div class="row"><div class="col text-center">
+     
+    <div class="container" ng-app="angularjs-starter" ng-controller="donorInfoCtrl">
+       <fieldset data-ng-repeat="Info in Infos">
+         <div class="row">
+            <label class="col col-20"> Name: </label>
+                        <input  type="text" placeholder="Enter Donor Name" ng-model="Info.name" required>                        
+            <label class="col col-20">Birthdate: </label>
+                        <input  type="date" ng-model="Info.bday" placeholder="Enter birthday" required>         
+        </div>
+
+       <div class="row">
+          <label class="col col-20">Street:  </label>
+              <input type="text" ng-model="Info.streetName" placeholder="Enter street name" required>          
+            <label class="col col-20">City: </label>
+              <input type="text" ng-model="Info.city" placeholder="Enter City" required>          
+            <label class="col col-5">Zip: </label>
+              <input type="number" ng-model="Info.zip" placeholder="Enter zip code" ng-minlength="4" required>
+      </div>
+
+       <div class="row">
+          <label class="col col-20">Mobile Number:  </label>
+              <input type="number" ng-model="Info.mobileNumber" placeholder="Enter mobile number" ng-minlength="11" required>          
+            <label class="col col-20">Email Address: </label>
+              <input type="text" ng-model="Info.email" placeholder="Enter email address" required>           
+        </div>
+
+        <div class="row">
+          <label class="col col-20">Status: </label>
+              <select ng-model="Info.status">
+                            <option ng-repeat="donateStat in stats" value="{{donateStat.stat}}" ng-selected="true"> {{donateStat.stat}}</option>
+                           
+              </select>
+            </div>
+            <div></div>
+            <div class="row">
+                      <label class="col col-20" ng-if="Info.status=='Declined'" ng-show="true">Reason: </label>
+                      <select ng-if="Info.status=='Declined'" ng-model="Info.reason" ng-show="true">
+                          <option ng-repeat= "declineReason in reasons" value="{{declineReason.reason}}">
+                            {{declineReason.reason}}
+                          </option>
+                      </select>
+                      <label class="col col-20" ng-if="Info.status=='Donated'" ng-show="true">Amount: </label>
+                      <input type="number"  ng-if="Info.status=='Donated'" ng-show="true" ng-model="Info.amount" placeholder="Enter donated amount"  required>
+                                      
+          </div>              
+          <button class="button button-assertive" ng-click="removeInfo(Info)">-</button>
+          <button class="button button-balanced" ng-click="addNewInfo()">+</button>
+       
+       </fieldset>
+
+       <div class="row">
+        <div class="col text-center">
+          <button class="button button-balanced"  style="float:right;" ng-click="submitAll()">Submit All</button>
+          </div>
+      </div>
+    </div>
+
+     
+    </div></div>
+  </ion-content>
+</ion-view>
