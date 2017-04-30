@@ -40,7 +40,7 @@ angular.module('starter')
 
   var login = function(name, pw) {
     return $q(function(resolve, reject) {
-      if (name == 'admin' && pw == '1')  {
+      if (name == 'user' && pw == '123')  {
         storeUserCredentials(name + '.yourServerToken');
         resolve('Login success.');
       } else {
